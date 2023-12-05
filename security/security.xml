@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- GRUPO ADMINISTRADOR -->
+        <record id="group_project_admin" model="res.groups">
+            <field name="name">Project Administrator</field>
+            <field name="comment">Administrator role with full access</field>
+        </record>
+
+        <!-- GRUPO JEFE DE PROYECTOS -->
+        <record id="group_project_manager" model="res.groups">
+            <field name="name">Project Manager</field>
+            <field name="comment">Project Manager role with CRUD access</field>
+        </record>
+
+        <!-- GRUPO ANALISTA -->
+        <record id="group_project_analyst" model="res.groups">
+            <field name="name">Project Analyst</field>
+            <field name="comment">Analyst role with read-only access</field>
+        </record>
+
+        <!-- GRUPO PROGRAMADOR -->
+        <record id="group_project_programmer" model="res.groups">
+            <field name="name">Project Programmer</field>
+            <field name="comment">Programmer role with modify access</field>
+        </record>
+
+        <!-- ASIGNACIÓN DE GRUPOS A USUARIOS -->
+        <record id="user_admin" model="res.users">
+            <field name="groups_id"
+                eval="[(4, ref('custom_project_management.group_project_admin'))]" />
+        </record>
+
+        <record id="user_project_manager" model="res.users">
+            <field name="groups_id"
+                eval="[(4, ref('custom_project_management.group_project_manager'))]" />
+        </record>
+
+        <record id="user_project_analyst" model="res.users">
+            <field name="groups_id"
+                eval="[(4, ref('custom_project_management.group_project_analyst'))]" />
+        </record>
+
+        <record id="user_project_programmer" model="res.users">
+            <field name="groups_id"
+                eval="[(4, ref('custom_project_management.group_project_programmer'))]" />
+        </record>
+
+    </data>
+</odoo>
