@@ -1,55 +1,30 @@
 # -*- coding: utf-8 -*-
 
-# from odoo import models, fields, api
-
-
-# class proyecto_ssg(models.Model):
-#     _name = 'proyecto_ssg.proyecto_ssg'
-#     _description = 'proyecto_ssg.proyecto_ssg'
-
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
-# models.py
-
 from odoo import models, fields, api
 
-class empresa_contratadora(models.Model):
-    _name = 'proyecto.empresa_contratadora'
-    _description = 'proyecto.empresa_contratadora'
+class proyecto_empresa_contratadora(models.Model):
+    _name = 'proyecto_empresa_contratadora'
+    _description = 'proyecto_empresa_contratadora'
 
     name = fields.Char('Nombre empresa', required=True)
-    empleados = fields.Char(string="Empleados")
+    empleados = fields.Integer(string="Número de Empleados")
+    tipo_empresa = fields.Selection(
+        [('microempresa', 'Microempresa'),
+         ('pequena_empresa', 'Pequeña empresa'),
+         ('mediana_empresa', 'Mediana empresa'),
+         ('gran_empresa', 'Gran empresa')],
+        string='Tipo de Empresa', compute='_tipoempresa', store=True)
+    
+    # proyectos_contratados = fields.One2many('proyecto.proyecto', 'empresa_contratadora_id', string='Proyectos Contratados')
 
-    # proyectos_ids = fields.One2many('proyecto.proyecto', 'empresa_contratadora_id', 'Proyectos Contratados')
-
-# class Proyecto(models.Model):
-#     _name = 'proyecto.proyecto'
-#     _description = 'Proyectos'
-
-#     name = fields.Char('Nombre', required=True)
-#     empresa_contratadora_id = fields.Many2one('proyecto.empresa_contratadora', 'Empresa Contratadora')
-#     tareas_ids = fields.One2many('proyecto.tarea', 'proyecto_id', 'Tareas')
-
-# class Tarea(models.Model):
-#     _name = 'proyecto.tarea'
-#     _description = 'Tareas'
-
-#     name = fields.Char('Nombre', required=True)
-#     proyecto_id = fields.Many2one('proyecto.proyecto', 'Proyecto')
-#     analista_id = fields.Many2one('res.users', 'Analista')
-#     subtareas_ids = fields.One2many('proyecto.subtarea', 'tarea_id', 'Subtareas')
-
-# class Subtarea(models.Model):
-#     _name = 'proyecto.subtarea'
-#     _description = 'Subtareas'
-
-#     name = fields.Char('Nombre', required=True)
-#     tarea_id = fields.Many2one('proyecto.tarea', 'Tarea')
-
+    @api.depends('empleados')
+    def _tipoempresa(self):
+        for r in self:
+            if r.empleados < 10:
+                r.tipo_empresa = 'microempresa'
+            elif 10 <= r.empleados <= 49:
+                r.tipo_empresa = 'pequena_empresa'
+            elif 50 <= r.empleados <= 249:
+                r.tipo_empresa = 'mediana_empresa'
+            else:
+                r.tipo_empresa = 'gran_empresa'

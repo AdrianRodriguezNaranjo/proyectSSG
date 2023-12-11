@@ -3,14 +3,13 @@
     'name': "proyectoSSG",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Modelo para empresas contratadoras """,
 
     'description': """
-        Long description of module's purpose
+        Proyecto de integración temprana SSG
     """,
 
-    'author': "My Company",
+    'author': "Adrián Rodríguez Naranjo",
     'website': "https://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -24,12 +23,24 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        'security/proyecto_ssg_reglas_registro.xml',
+        'data/proyecto_etapa_data.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
+
+    'application':'True',
+
+    # assets
+    'assets':{
+        'web.assets_common': [
+            'proyecto_ssg/static/src/scss/style1.scss',
+        ]
+    }
 }

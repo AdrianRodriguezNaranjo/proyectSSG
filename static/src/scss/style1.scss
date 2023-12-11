@@ -1,0 +1,33 @@
+.o_main_navbar {
+    color:rgb(0,0,0);
+    background-color: rgb(37, 149, 74);
+
+    > .o_menu_brand {
+        color:rgb(0,0,0);
+    }
+
+    > ul {
+
+        > li {
+
+            > a, > label {
+                color:rgb(0,0,0);
+            }
+
+            &.o_extra_menu_items {
+                &.show > ul {
+
+                    > li {
+                        > a {
+                            color:rgb(0,0,0);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .dropdown-menu.show {
+        background-color: rgb(56, 223, 111);
+    }
+}

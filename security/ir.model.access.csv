@@ -1,9 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_proyecto_ssg_proyecto_ssg,proyecto_ssg.proyecto_ssg,model_proyecto_ssg_proyecto_ssg,base.group_user,1,1,1,1
-
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_project_project,Project: Read Access,project.model_project_project,custom_project_management.group_project_manager,1,1,1,1
-access_project_task,Task: Read Access,project.model_project_task,custom_project_management.group_project_manager,1,1,1,1
-access_res_partner,Res Partner: Read Access,res.partner.model_res_partner,custom_project_management.group_project_manager,1,1,1,1
-access_analyst,Analyst: Read Access,custom_project_management.model_custom_project_management_analyst,custom_project_management.group_project_manager,1,1,1,1
-access_programmer,Programmer: Write Access,custom_project_management.model_custom_project_management_programmer,custom_project_management.group_project_programmer,1,1,0,1
+access_project_manager,proyecto_empresa_contratadora.manager,model_proyecto_empresa_contratadora,proyecto_ssg.group_project_manager,1,1,1,1
+access_project_analyst,proyecto_empresa_contratadora.analyst,model_proyecto_empresa_contratadora,proyecto_ssg.group_project_analyst,1,0,1,0
+access_project_programmer,proyecto_empresa_contratadora.programmer,model_proyecto_empresa_contratadora,proyecto_ssg.group_project_programmer,1,1,0,0

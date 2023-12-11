@@ -1,4 +1,4 @@
-# proyectSSG
+# Proyecto de SSG
 ## Tarea a realizar:
 Crea una base de datos nueva en tu instalación de Odoo.
 
