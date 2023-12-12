@@ -9,6 +9,7 @@
           <field name="name" />
           <field name="empleados" />
           <field name="tipo_empresa" />
+          <field name="proyecto" />
         </tree>
       </field>
     </record>
@@ -22,15 +23,35 @@
             <field name="name" />
             <field name="empleados" />
             <field name="tipo_empresa" />
+            <field name="proyecto" />
           </group>
         </form>
       </field>
     </record>
 
+    <!-- <record id="res_partner_view_form_inherit_incidencias" model="ir.ui.view">
+      <field name="name">res.partner.view.form.inherit.incidencias</field>
+      <field name="model">ir.model.fields</field>
+      <field name="inherit_id" ref="base.view_partner_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//page[@name='internal_notes']" position="after">
+          <page string="Incidencias" name="Ficha_incidencias_clientes">
+            <field name="incidencias">
+              <tree>
+                <field name="name" />
+                <field name="fecha" />
+                <field name="municipio" />
+              </tree>
+            </field>
+          </page>
+        </xpath>
+      </field>
+    </record> -->
+
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="empresa_contratadora_action_window">
-      <field name="name">empresa_contratadora</field>
+      <field name="name">Empresa Contratadora</field>
       <field name="res_model">proyecto_empresa_contratadora</field>
       <field name="view_mode">tree,form</field>
     </record>
