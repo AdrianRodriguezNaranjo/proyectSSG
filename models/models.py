@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+# id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+# access_project_manager,proyecto_empresa_contratadora.manager,model_proyecto_empresa_contratadora,proyecto_ssg.group_project_manager,1,1,1,1
+# access_project_analyst,proyecto_empresa_contratadora.analyst,model_proyecto_empresa_contratadora,proyecto_ssg.group_project_analyst,1,0,1,0
+# access_project_programmer,proyecto_empresa_contratadora.programmer,model_proyecto_empresa_contratadora,proyecto_ssg.group_project_programmer,1,1,0,0
 
 from odoo import models, fields, api
 
