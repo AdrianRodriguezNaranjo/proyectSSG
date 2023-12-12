@@ -15,7 +15,7 @@ class proyecto_empresa_contratadora(models.Model):
          ('gran_empresa', 'Gran empresa')],
         string='Tipo de Empresa', compute='_tipoempresa', store=True)
     
-    proyecto = fields.Many2one('project.project', string="Proyecto",required=True,ondelete="cascade")
+    proyecto = fields.One2many('project.project','companies', string="Proyecto")
 
     @api.depends('empleados')
     def _tipoempresa(self):
@@ -33,4 +33,8 @@ class proyecto_proyecto(models.Model):
      _name = 'project.project'
      _inherit = 'project.project'
 
-     companies = fields.One2many("proyecto_empresa_contratadora","proyecto",string="Empresa")
+     companies = fields.Many2one("proyecto_empresa_contratadora",string="Empresa",required=True,ondelete="cascade")
+
+class proyecto_task(models.Model):
+     _name = 'project.task'
+     _inherit = 'project.task'

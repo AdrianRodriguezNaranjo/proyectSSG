@@ -29,24 +29,16 @@
       </field>
     </record>
 
-    <!-- <record id="res_partner_view_form_inherit_incidencias" model="ir.ui.view">
-      <field name="name">res.partner.view.form.inherit.incidencias</field>
-      <field name="model">ir.model.fields</field>
-      <field name="inherit_id" ref="base.view_partner_form" />
+    <record id="project_project_extend" model="ir.ui.view">
+      <field name="name">project.project.extended</field>
+      <field name="model">project.project</field>
+      <field name="inherit_id" ref="project.edit_project" />
       <field name="arch" type="xml">
-        <xpath expr="//page[@name='internal_notes']" position="after">
-          <page string="Incidencias" name="Ficha_incidencias_clientes">
-            <field name="incidencias">
-              <tree>
-                <field name="name" />
-                <field name="fecha" />
-                <field name="municipio" />
-              </tree>
-            </field>
-          </page>
-        </xpath>
+        <field name="user_id" position="after">
+          <field name="companies" />
+        </field>
       </field>
-    </record> -->
+    </record>
 
     <!-- actions opening views on models -->
 
@@ -56,14 +48,29 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record model="ir.actions.act_window" id="action_menu_proyectos">
+      <field name="name">Proyecto</field>
+      <field name="res_model">project.project</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_menu_tareas">
+      <field name="name">Tareas</field>
+      <field name="res_model">project.task</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
     <!-- Top menu item -->
-    <menuitem name="Empresas Contratadoras" id="proyecto_ssg.menu_root"/>
+    <menuitem name="Empresas Contratadoras" id="proyecto_ssg.menu_root" />
 
-    <!-- menu categories -->    
-    <menuitem name="Empresas Contratadoras" id="proyecto_ssg.menu" parent="proyecto_ssg.menu_root"/>
+    <!-- menu categories -->
+    <menuitem name="Empresas Contratadoras" id="proyecto_ssg.menu_1" parent="proyecto_ssg.menu_root"
+      action="empresa_contratadora_action_window" />
 
-    <!-- actions -->    
-    <menuitem name="Empresas Contratadoras" id="proyecto_ssg.menu_empresas" parent="proyecto_ssg.menu"
-              action="empresa_contratadora_action_window"/>
+    <menuitem name="Proyectos" id="proyecto_ssg.menu_2" parent="proyecto_ssg.menu_root"
+      action="action_menu_proyectos" />
+
+    <menuitem name="Tareas" id="proyecto_ssg.menu_3" parent="proyecto_ssg.menu_root"
+      action="action_menu_tareas" />
   </data>
 </odoo>
