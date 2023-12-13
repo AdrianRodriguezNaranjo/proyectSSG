@@ -31,7 +31,7 @@ class proyecto_proyecto(models.Model):
      _inherit = 'project.project'
 
      companies = fields.Many2one("proyecto_empresa_contratadora",string="Empresa")
-     tasks = fields.One2many('project.task','projects_id', string="Tareas")
+     tasks = fields.One2many('project.task','projects', string="Tareas")
 
 class proyecto_task(models.Model):
      _inherit = 'project.task'

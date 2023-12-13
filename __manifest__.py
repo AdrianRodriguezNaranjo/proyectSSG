@@ -28,7 +28,10 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'security/proyecto_ssg_reglas_registro.xml',
-        'data/proyecto_etapa_data.xml'
+        'data/proyecto_etapa_data.xml',
+        'reports/empresa_contratadora_report.xml',
+        'reports/empresa_contratadora_report_view.xml',
+        
     ],
     # only loaded in demonstration mode
     'demo': [
