@@ -37,6 +37,11 @@
         <field name="user_id" position="after">
           <field name="companies" />
         </field>
+        <xpath expr="//page" position="after">
+          <page string="Tareas" name="Detalles Tareas">
+            <field name="tasks" />
+          </page>
+        </xpath>
       </field>
     </record>
 
@@ -51,7 +56,7 @@
     <record model="ir.actions.act_window" id="action_menu_proyectos">
       <field name="name">Proyecto</field>
       <field name="res_model">project.project</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <record model="ir.actions.act_window" id="action_menu_tareas">

@@ -28,11 +28,12 @@ class proyecto_empresa_contratadora(models.Model):
                 r.tipo_empresa = 'gran_empresa'
 
 class proyecto_proyecto(models.Model):
-     _name = 'project.project'
      _inherit = 'project.project'
 
-     companies = fields.Many2one("proyecto_empresa_contratadora",string="Empresa",required=True,ondelete="cascade")
+     companies = fields.Many2one("proyecto_empresa_contratadora",string="Empresa")
+     tasks = fields.One2many('project.task','projects_id', string="Tareas")
 
 class proyecto_task(models.Model):
-     _name = 'project.task'
      _inherit = 'project.task'
+
+     projects = fields.Many2one("project.project",string="Proyectos")
